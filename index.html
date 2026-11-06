@@ -126,16 +126,6 @@
       margin: 4mm 0;
     }
     
-    .cut-line::after {
-      content: '✂ Gunting / Potong di sini (Setengah A4 / A5)';
-      position: absolute;
-      top: -10px;
-      right: 20px;
-      background: white;
-      padding: 0 8px;
-      font-size: 10px;
-      color: #6b7280;
-    }
 
     /* Layout CUTI (Full A4 Exact PDF Matching) */
     .a4-sheet-cuti {
@@ -402,7 +392,7 @@
                 <button onclick="clearCanvas('canvas-1-2')" class="signature-actions absolute top-0 right-0 text-[9px] text-gray-400 hover:text-red-600 p-0.5">Reset</button>
               </div>
               <div class="border-t border-dotted border-black pt-0.5 mt-0.5">
-                <span contenteditable="true" id="f1-nama-disetujui" class="editable font-semibold w-full text-center"></span>
+                <span contenteditable="true" id="f1-nama-disetujui" class="editable font-semibold w-full text-center">Muhammad Rizqy Rizal</span>
               </div>
             </div>
           </div>
@@ -529,7 +519,7 @@
                 <button onclick="clearCanvas('canvas-2-2')" class="signature-actions absolute top-0 right-0 text-[9px] text-gray-400 hover:text-red-600 p-0.5">Reset</button>
               </div>
               <div class="border-t border-dotted border-black pt-0.5 mt-0.5">
-                <span contenteditable="true" id="f2-nama-disetujui" class="editable font-semibold w-full text-center"></span>
+                <span contenteditable="true" id="f2-nama-disetujui" class="editable font-semibold w-full text-center">Muhammad Rizqy Rizal</span>
               </div>
             </div>
           </div>
@@ -678,13 +668,13 @@
 
           <!-- User -->
           <div class="text-center relative signature-pad-container">
-            <div class="font-normal text-gray-900 mb-1">User</div>
+            <div class="font-normal text-gray-900 mb-1">Disetujui Oleh</div>
             <div class="relative h-20 w-full flex items-center justify-center my-1">
               <canvas id="canvas-cuti-user" class="absolute inset-0 w-full h-full cursor-crosshair"></canvas>
               <button onclick="clearCanvas('canvas-cuti-user')" class="signature-actions absolute top-0 right-0 text-[10px] text-gray-400 hover:text-red-600 p-0.5">Reset</button>
             </div>
             <div class="pt-1">
-              <span>(</span><span contenteditable="true" id="c-nama-user-ttd" class="editable font-medium min-w-[140px] text-center"></span><span>)</span>
+              <span>(</span><span contenteditable="true" id="c-nama-user-ttd" class="editable font-medium min-w-[140px] text-center">Muhammad Rizqy Rizal</span><span>)</span>
             </div>
             <div class="text-[11px] text-gray-800 mt-0.5">Nama & Tanda Tangan</div>
             <div class="text-[11px] text-gray-800 mt-0.5 flex justify-center items-center">
@@ -821,11 +811,13 @@
     }
 
     function clearLemburFields() {
-      const ids = ['f1-nama', 'f1-nik', 'f1-posisi', 'f1-tanggal', 'f1-jam-mulai', 'f1-jam-selesai', 'f1-durasi', 'f1-tgl-ttd', 'f1-nama-diajukan', 'f1-nama-disetujui', 'f2-nama', 'f2-nik', 'f2-posisi', 'f2-tanggal', 'f2-jam-mulai', 'f2-jam-selesai', 'f2-durasi', 'f2-tgl-ttd', 'f2-nama-diajukan', 'f2-nama-disetujui'];
+      const ids = ['f1-nama', 'f1-nik', 'f1-posisi', 'f1-tanggal', 'f1-jam-mulai', 'f1-jam-selesai', 'f1-durasi', 'f1-tgl-ttd', 'f1-nama-diajukan', 'f2-nama', 'f2-nik', 'f2-posisi', 'f2-tanggal', 'f2-jam-mulai', 'f2-jam-selesai', 'f2-durasi', 'f2-tgl-ttd', 'f2-nama-diajukan'];
       ids.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.textContent = '';
       });
+      document.getElementById('f1-nama-disetujui').textContent = 'Muhammad Rizqy Rizal';
+      document.getElementById('f2-nama-disetujui').textContent = 'Muhammad Rizqy Rizal';
 
       document.getElementById('f1-deskripsi').value = '';
       document.getElementById('f2-deskripsi').value = '';
@@ -844,6 +836,7 @@
         const el = document.getElementById(id);
         if (el) el.textContent = '';
       });
+      document.getElementById('c-nama-user-ttd').textContent = 'Muhammad Rizqy Rizal';
 
       document.getElementById('c-alamat').value = '';
       document.getElementById('c-alasan').value = '';
